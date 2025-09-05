@@ -9,21 +9,21 @@ const testimonials = [
     {
         
         role: 'Designer',
-        image: '/public/images/user.png',
+        image: 'public/images/user.png',
         quote:
             '“ I believe in lifelong learning and Skola is a great place to learn from experts. I’ve learned a lot and recommend it to all my friends ”',
     },
     {
        
         role: 'Designer',
-        image: '/public/images/user2.png',
+        image: 'public/images/user2.png',
         quote:
             '“ I believe in lifelong learning and Skola is a great place to learn from experts. I’ve learned a lot and recommend it to all my friends ”',
     },
     {
        
         role: 'Designer',
-        image: '/public/images/user1.png',
+        image: 'public/images/user1.png',
         quote:
             '“ I believe in lifelong learning and Skola is a great place to learn from experts. I’ve learned a lot and recommend it to all my friends ”',
     },

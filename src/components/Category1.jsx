@@ -8,23 +8,23 @@ import 'swiper/css/pagination';
 const categories = [
   {
     title: 'House',
-    image: '/public/images/e2c1b220eb21ff462cdc4d29fe96321026ddfaf6.jpg',
-    icon: '/public/images/home 1.png',
+    image: 'public/images/e2c1b220eb21ff462cdc4d29fe96321026ddfaf6.jpg',
+    icon: 'public/images/home 1.png',
   },
   {
     title: 'Apartment',
-    image: '/public/images/a46173493b2fca6785ac30284fd0495de6b60b0c.jpg',
-    icon: '/public/images/apartment.png',
+    image: 'public/images/a46173493b2fca6785ac30284fd0495de6b60b0c.jpg',
+    icon: 'public/images/apartment.png',
   },
   {
     title: 'Office',
-    image: '/public/images/26d4b35fa4aad17a5d27392d202612988fcf4428.jpg',
-    icon: '/public/images/business-and-trade.png',
+    image: 'public/images/26d4b35fa4aad17a5d27392d202612988fcf4428.jpg',
+    icon: 'public/images/business-and-trade.png',
   },
   {
     title: 'Villa',
-    image: '/public/images/2b254a215daf4df85e7310b212cf310826ea9dbc.jpg',
-    icon: '/public/images/villa.png',
+    image: 'public/images/2b254a215daf4df85e7310b212cf310826ea9dbc.jpg',
+    icon: 'public/images/villa.png',
   },
 ];
 
