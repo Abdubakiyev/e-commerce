@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
     return (
@@ -12,9 +13,9 @@ export default function Navbar() {
 
 
                 <div className="hidden md:flex items-center gap-8 text-sm">
-                    <a href="#" className="hover:underline">Home</a>
-                    <a href="#" className="hover:underline">Properties</a>
-                    <a href="#" className="hover:underline">Contacts</a>
+                    <Link to="/" className="hover:underline">Home</Link>
+                    <Link to="/properties" className="hover:underline">Properties</Link>
+                    <Link to="/" className="hover:underline">Contacts</Link>
                 </div>
 
 
