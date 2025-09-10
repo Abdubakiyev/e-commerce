@@ -1,4 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import { AiOutlineExpand } from "react-icons/ai";
+import { FiHeart } from "react-icons/fi";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { FaBed, FaBath, FaCar, FaRulerCombined } from 'react-icons/fa';
 
 const properties = [
   {
@@ -10,11 +18,11 @@ const properties = [
     baths: 5,
     garage: 1,
     area: 1200,
-    price: 7500,
-    oldPrice: 2800,
+    priceOld: '$2,800/mo',
+    priceNew: '$7,500/mo',
     featured: true,
     forSale: true,
-    userAvatar: 'https://randomuser.me/api/portraits/women/44.jpg',
+    agent: 'https://randomuser.me/api/portraits/women/44.jpg',
   },
   {
     id: 2,
@@ -25,11 +33,11 @@ const properties = [
     baths: 5,
     garage: 1,
     area: 1200,
-    price: 7500,
-    oldPrice: 2800,
+    priceOld: '$2,800/mo',
+    priceNew: '$7,500/mo',
     featured: true,
     forSale: true,
-    userAvatar: 'https://randomuser.me/api/portraits/men/32.jpg',
+    agent: 'https://randomuser.me/api/portraits/men/32.jpg',
   },
   {
     id: 3,
@@ -40,134 +48,132 @@ const properties = [
     baths: 5,
     garage: 1,
     area: 1200,
-    price: 7500,
-    oldPrice: 2800,
+    priceOld: '$2,800/mo',
+    priceNew: '$7,500/mo',
     featured: true,
     forSale: true,
-    userAvatar: 'https://randomuser.me/api/portraits/men/45.jpg',     
+    agent: 'https://randomuser.me/api/portraits/men/45.jpg',     
   },
 ];
 
-const PropertyCard = ({ property, active }) => (
-  <div
-    className={`bg-white rounded-md shadow-md relative p-4 max-w-sm ${
-      active ? 'border-2 border-white' : ''
-    }`}
-  >
-    <div className="relative">
-      <img
-        src={property.image}
-        alt={property.title}
-        className="rounded-md w-full h-48 object-cover"
-      />
-      {property.featured && (
-        <span className="absolute top-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">
-          FEATURED
-        </span>
-      )}
-      {property.forSale && (
-        <span className="absolute top-2 right-2 bg-gray-800 text-white text-xs px-2 py-1 rounded">
-          FOR SALE
-        </span>
-      )}
-      <img
-        src={property.userAvatar}
-        alt="User avatar"
-        className="w-10 h-10 rounded-full border-2 border-white absolute bottom-[-15px] right-4"
-      />
-    </div>
+const PropertiCard = () => {
+  // Liked bo'lgan kartalarni index orqali saqlaymiz
+  const [liked, setLiked] = useState({});
 
-    <div className="mt-8">
-      <h3 className="font-semibold text-sm">{property.title}</h3>
-      <p className="text-xs text-gray-500">{property.address}</p>
+  const toggleLike = (index) => {
+    setLiked((prev) => ({
+      ...prev,
+      [index]: !prev[index], // faqat shu kartani o'zgartiramiz
+    }));
+  };
 
-      <div className="flex justify-between text-xs text-gray-500 mt-3">
-        <div className="flex items-center gap-1">
-          <svg
-            className="w-4 h-4 text-gray-400"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            xmlns=""
-          >
-            <path d="M3 12h18M9 21V9m6 12V9" />
-          </svg>
-          {property.beds} Beds
-        </div>
-        <div className="flex items-center gap-1">
-          <svg
-            className="w-4 h-4 text-gray-400"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            xmlns=""
-          >
-            <path d="M12 3v18M9 15h6" />
-          </svg>
-          {property.baths} Baths
-        </div>
-        <div className="flex items-center gap-1">
-          <svg
-            className="w-4 h-4 text-gray-400"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            xmlns=""
-          >
-            <path d="M5 16l3-3 4 4 6-6" />
-          </svg>
-          {property.garage} Garage
-        </div>
-        <div className="flex items-center gap-1">
-          <svg
-            className="w-4 h-4 text-gray-400"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            xmlns=" "
-          >
-            <path d="M3 7h18M3 12h18M3 17h18" />
-          </svg>
-          {property.area} Sq Ft
-        </div>
-      </div>
-
-      <div className="mt-4 flex justify-between items-center text-sm font-semibold">
-        <div>
-          <span className="line-through text-gray-400 mr-2">${property.oldPrice}/mo</span>
-          <span>${property.price}/mo</span>
-        </div>
-        <button
-          aria-label="Favorite"
-          className="text-gray-400 hover:text-red-500 focus:outline-none"
-        >
-          
-        </button>
-      </div>
-    </div>
-  </div>
-);
-
-export default function Recommended() {
   return (
- <section className="py-12 bg-gradient-to-b from-[#444] to-[#222]">
-  <div className="max-w-6xl mx-auto px-4 text-center text-white">
-    <h2 className="text-xl font-bold mb-2">Recommended</h2>
-    <p className="text-sm text-gray-300 mb-8">
-      Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.
-    </p>
+    <div className="py-16 bg-white">
+      <div className="text-center mb-10">
+        <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
+          Recommended
+        </h2>
+        <p className="text-gray-500 mt-2">
+          Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.
+        </p>
+      </div>
 
-    <div className="flex gap-6 justify-center overflow-x-auto scrollbar-hide">
-      {properties.map((property, idx) => (
-        <PropertyCard key={property.id} property={property} active={idx === 0} />
-      ))}
+      <div className="max-w-6xl mx-auto px-4">
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={20}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
+          {properties.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="relative">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-56 object-cover"
+                  />
+                  <div className="absolute top-3 left-3 bg-blue-700 text-white text-xs px-2 py-1 rounded">
+                    FEATURED
+                  </div>
+                  <div className="absolute top-3 right-3 bg-blue-500 text-white text-xs px-2 py-1 rounded">
+                    FOR SALE
+                  </div>
+                  <img
+                    src={item.agent}
+                    className="w-10 h-10 rounded-full absolute -bottom-5 right-3 border-2 border-white"
+                    alt="agent"
+                  />
+                </div>
+                <div className="p-5 pt-8">
+                  <h3 className="font-semibold text-gray-800">{item.title}</h3>
+                  <p className="text-sm text-gray-500 mb-2">{item.location}</p>
+
+                  {/* Beds va Baths */}
+                  <div className="flex items-center justify-between text-gray-600 text-sm mt-4">
+                    <div className="flex items-center gap-1">
+                      <FaBed /> {item.beds} Beds
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <FaBath /> {item.baths} Baths
+                    </div>
+                  </div>
+
+                  {/* Garage va Area */}
+                  <div className="flex items-center justify-between text-gray-600 text-sm mt-2">
+                    <div className="flex items-center gap-1">
+                      <FaCar /> {item.garage} Garage
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <FaRulerCombined /> {item.area}
+                    </div>
+                  </div>
+
+                  {/* Narx va Ikonkalar yonma-yon */}
+                  <div className="mt-4 flex items-center justify-between">
+                    {/* Narx */}
+                    <div>
+                      <span className="line-through text-gray-400 text-sm">
+                        {item.priceOld}
+                      </span>
+                      <p className="text-blue-600 font-bold text-lg">
+                        {item.priceNew}
+                      </p>
+                    </div>
+
+                    {/* Ikonkalar */}
+                    <div className="flex items-center gap-2">
+                      <button className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition">
+                        <AiOutlineExpand className="text-gray-600 text-lg" />
+                      </button>
+                      <button
+                        onClick={() => toggleLike(index)}
+                        className={`p-3 rounded-full shadow transition 
+                          ${liked[index] ? "bg-red-500" : "bg-white hover:bg-gray-100"}`}
+                      >
+                        <FiHeart
+                          className={`text-lg ${
+                            liked[index] ? "text-white" : "text-gray-700"
+                          }`}
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
-  </div>
-</section>
-
   );
-}
+};
+
+export default PropertiCard;

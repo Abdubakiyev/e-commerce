@@ -15,13 +15,16 @@ export default function Navbar() {
                 <div className="hidden md:flex items-center gap-8 text-sm">
                     <Link to="/" className="hover:underline">Home</Link>
                     <Link to="/properties" className="hover:underline">Properties</Link>
-                    <Link to="/" className="hover:underline">Contacts</Link>
+                    <Link to="/contacts" className="hover:underline">Contacts</Link>
                 </div>
 
 
-                <button className="border border-white px-4 py-1 rounded hover:bg-white hover:text-[#0D263B] transition">
-                    Login
-                </button>
+                <Link
+                  to="/login"
+                  className="border border-white px-4 py-1 rounded hover:bg-white hover:text-[#0D263B] transition"
+                >
+                  Login
+                </Link>
             </div>
         </div>
     );

@@ -11,7 +11,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { FaBed, FaBath, FaCar, FaRulerCombined } from 'react-icons/fa';
 
-export default function Properties() {
+export default function Favourite() {
   const [likedItems, setLikedItems] = useState([]);
 
   const toggleLike = (index) => {
@@ -71,149 +71,6 @@ export default function Properties() {
       priceNew: '$7,500/mo',
       agent: '/images/user1.png',
     },
-    {
-      title: 'New Apartment Nice View',
-      location: 'Quincy St, Brooklyn, NY, USA',
-      image: '/images/images.png',
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      area: '1200 Sq Ft',
-      priceOld: '$2,800/mo',
-      priceNew: '$7,500/mo',
-      agent: '/images/user2.png',
-    },
-    {
-      title: 'New Apartment Nice View',
-      location: 'Quincy St, Brooklyn, NY, USA',
-      image: '/images/images (1).png',
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      area: '1200 Sq Ft',
-      priceOld: '$2,800/mo',
-      priceNew: '$7,500/mo',
-      agent: '/images/user.png',
-    },
-    {
-      title: 'New Apartment Nice View',
-      location: 'Quincy St, Brooklyn, NY, USA',
-      image: '/images/a46173493b2fca6785ac30284fd0495de6b60b0c.jpg',
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      area: '1200 Sq Ft',
-      priceOld: '$2,800/mo',
-      priceNew: '$7,500/mo',
-      agent: '/images/user1.png',
-    },
-    {
-      title: 'New Apartment Nice View',
-      location: 'Quincy St, Brooklyn, NY, USA',
-      image: '/images/images.png',
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      area: '1200 Sq Ft',
-      priceOld: '$2,800/mo',
-      priceNew: '$7,500/mo',
-      agent: '/images/user2.png',
-    },
-    {
-      title: 'New Apartment Nice View',
-      location: 'Quincy St, Brooklyn, NY, USA',
-      image: '/images/images (1).png',
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      area: '1200 Sq Ft',
-      priceOld: '$2,800/mo',
-      priceNew: '$7,500/mo',
-      agent: '/images/user.png',
-    },
-    {
-      title: 'New Apartment Nice View',
-      location: 'Quincy St, Brooklyn, NY, USA',
-      image: '/images/a46173493b2fca6785ac30284fd0495de6b60b0c.jpg',
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      area: '1200 Sq Ft',
-      priceOld: '$2,800/mo',
-      priceNew: '$7,500/mo',
-      agent: '/images/user1.png',
-    },
-    {
-      title: 'New Apartment Nice View',
-      location: 'Quincy St, Brooklyn, NY, USA',
-      image: '/images/images.png',
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      area: '1200 Sq Ft',
-      priceOld: '$2,800/mo',
-      priceNew: '$7,500/mo',
-      agent: '/images/user2.png',
-    },
-    {
-      title: 'New Apartment Nice View',
-      location: 'Quincy St, Brooklyn, NY, USA',
-      image: '/images/images (1).png',
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      area: '1200 Sq Ft',
-      priceOld: '$2,800/mo',
-      priceNew: '$7,500/mo',
-      agent: '/images/user.png',
-    },
-    {
-      title: 'New Apartment Nice View',
-      location: 'Quincy St, Brooklyn, NY, USA',
-      image: '/images/a46173493b2fca6785ac30284fd0495de6b60b0c.jpg',
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      area: '1200 Sq Ft',
-      priceOld: '$2,800/mo',
-      priceNew: '$7,500/mo',
-      agent: '/images/user1.png',
-    },
-    {
-      title: 'New Apartment Nice View',
-      location: 'Quincy St, Brooklyn, NY, USA',
-      image: '/images/images.png',
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      area: '1200 Sq Ft',
-      priceOld: '$2,800/mo',
-      priceNew: '$7,500/mo',
-      agent: '/images/user2.png',
-    },
-    {
-      title: 'New Apartment Nice View',
-      location: 'Quincy St, Brooklyn, NY, USA',
-      image: '/images/images (1).png',
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      area: '1200 Sq Ft',
-      priceOld: '$2,800/mo',
-      priceNew: '$7,500/mo',
-      agent: '/images/user.png',
-    },
-    {
-      title: 'New Apartment Nice View',
-      location: 'Quincy St, Brooklyn, NY, USA',
-      image: '/images/a46173493b2fca6785ac30284fd0495de6b60b0c.jpg',
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      area: '1200 Sq Ft',
-      priceOld: '$2,800/mo',
-      priceNew: '$7,500/mo',
-      agent: '/images/user1.png',},
     {
       title: 'New Apartment Nice View',
       location: 'Quincy St, Brooklyn, NY, USA',
@@ -373,11 +230,11 @@ export default function Properties() {
                         <button
                           onClick={() => toggleLike(index)}
                           className={`w-9 h-9 flex items-center justify-center rounded-full shadow transition 
-                            ${likedItems.includes(index) ? "bg-red-500" : "bg-white hover:bg-gray-100"}`}
+                            ${likedItems.includes(index) ? "bg-white" : "bg-red-500 hover:bg-gray-100"}`}
                         >
                           <FiHeart
                             className={`text-lg ${
-                              likedItems.includes(index) ? "text-white" : "text-gray-700"
+                              likedItems.includes(index) ? "text-gray-700" : "text-white"
                             }`}
                         />
                         </button>
