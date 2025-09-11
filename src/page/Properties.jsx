@@ -10,18 +10,20 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { FaBed, FaBath, FaCar, FaRulerCombined } from 'react-icons/fa';
+import MainNav from '../components/MainNav';
 
 export default function Properties() {
+  const token = localStorage.getItem('token', 'fake_token_123');
+
   const [likedItems, setLikedItems] = useState([]);
 
   const toggleLike = (index) => {
     setLikedItems((prev) =>
       prev.includes(index)
-        ? prev.filter((i) => i !== index) // agar bosilgan bo‘lsa olib tashlaydi
-        : [...prev, index] // bosilmagan bo‘lsa qo‘shadi
+        ? prev.filter((i) => i !== index)
+        : [...prev, index] 
     );
   };
-  // 👉 return tashqarisida massivni yozamiz
   const properties = [
     {
       title: 'New Apartment Nice View',
@@ -278,10 +280,9 @@ export default function Properties() {
 
   return (
     <div>
-      <Navbar />
+      {token ? <MainNav /> : <Navbar />}
       <SearchBar />
 
-      {/* Recent Properties Section */}
       <div className="py-16 bg-white">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
@@ -315,7 +316,6 @@ export default function Properties() {
                       className="w-full h-56 object-cover"
                     />
 
-                    {/* Badges */}
                     <div className="absolute top-3 left-3 bg-blue-700 text-white text-xs px-2 py-1 rounded">
                       FEATURED
                     </div>
@@ -323,7 +323,6 @@ export default function Properties() {
                       FOR SALE
                     </div>
 
-                    {/* Agent */}
                     <img
                       src={item.agent}
                       className="w-10 h-10 rounded-full absolute -bottom-5 right-3 border-2 border-white"
@@ -353,9 +352,7 @@ export default function Properties() {
                       </div>
                     </div>
 
-                    {/* Narx va Ikonkalar yonma-yon */}
                     <div className="mt-4 flex items-center justify-between">
-                      {/* Narx */}
                       <div>
                         <span className="line-through text-gray-400 text-sm">
                           {item.priceOld}
@@ -365,7 +362,6 @@ export default function Properties() {
                         </p>
                       </div>
 
-                      {/* Ikonkalar */}
                       <div className="flex items-center gap-2">
                         <button className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition">
                           <AiOutlineExpand className="text-gray-600 text-lg" />

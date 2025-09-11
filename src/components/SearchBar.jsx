@@ -33,7 +33,6 @@ export default function SearchBar() {
 
       {showAdvanced && (
         <div className="mt-4 w-full max-w-4xl bg-white shadow-lg p-6 rounded border">
-          {/* Address Section */}
           <div>
             <h3 className="font-semibold mb-2">Address</h3>
             <div className="grid grid-cols-4 gap-4">
@@ -44,7 +43,6 @@ export default function SearchBar() {
             </div>
           </div>
 
-          {/* Apartment Info Section */}
           <div className="mt-6">
             <h3 className="font-semibold mb-2">Apartment info</h3>
             <div className="grid grid-cols-3 gap-4">
@@ -54,7 +52,6 @@ export default function SearchBar() {
             </div>
           </div>
 
-          {/* Price Section */}
           <div className="mt-6">
             <h3 className="font-semibold mb-2">Price</h3>
             <div className="grid grid-cols-2 gap-4">
@@ -63,7 +60,6 @@ export default function SearchBar() {
             </div>
           </div>
 
-          {/* Buttons */}
           <div className="mt-6 flex justify-end gap-4">
             <button
               onClick={toggleAdvanced}

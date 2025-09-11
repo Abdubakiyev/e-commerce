@@ -1,14 +1,19 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import SearchBar from '../components/SearchBar'
-import Footer from '../components/Footer'
+import React from 'react';
+import Navbar from '../components/Navbar';
+import MainNav from '../components/MainNav';
+import SearchBar from '../components/SearchBar';
+import Footer from '../components/Footer';
 
 export default function Contact() {
+  const token = localStorage.getItem('token', 'fake_token_123');
+
   return (
     <div>
-        <Navbar/>
-        <SearchBar/>
-        <section className="px-6 md:px-16 py-12 bg-gray-50">
+      {token ? <MainNav /> : <Navbar />}
+
+      <SearchBar />
+
+      <section className="px-6 md:px-16 py-12 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-semibold mb-6">
             Savollaringiz bo’lsa murojaat qiling
@@ -30,9 +35,7 @@ export default function Contact() {
             <div className="bg-white shadow rounded-xl p-6 flex flex-col items-center text-center">
               <div className="text-3xl mb-3">📍</div>
               <h3 className="font-semibold">Manzil</h3>
-              <p className="text-gray-600">
-                Sirdaryo vil, Guliston sh, 1-mavze
-              </p>
+              <p className="text-gray-600">Sirdaryo vil, Guliston sh, 1-mavze</p>
             </div>
           </div>
 
@@ -86,8 +89,9 @@ export default function Contact() {
             </form>
           </div>
         </div>
-        </section>
-        <Footer/>
+      </section>
+
+      <Footer />
     </div>
-  )
+  );
 }

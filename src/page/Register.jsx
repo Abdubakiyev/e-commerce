@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
+    const [login, setRegister] = useState(""); 
+    const [password, setPassword] = useState(""); 
+    const navigate = useNavigate(); 
+
+    const handleLogin = (e) => {
+      e.preventDefault(); 
+  
+    
+      const token = 'fake_token_123'; 
+  
+   
+      localStorage.setItem('token', token);
+  
+      navigate('/');
+    };
   return (
     <div>
     <Navbar/>
@@ -12,35 +27,30 @@ export default function Register() {
         <h2 className="text-xl font-semibold mb-6">Registration</h2>
 
         <form className="space-y-4">
-          {/* Login */}
           <input
             type="text"
             placeholder="Login"
             className="w-full border-b border-gray-300 focus:outline-none focus:border-blue-500 py-2"
           />
 
-          {/* First name */}
           <input
             type="text"
             placeholder="First name"
             className="w-full border-b border-gray-300 focus:outline-none focus:border-blue-500 py-2"
           />
 
-          {/* Last name */}
           <input
             type="text"
             placeholder="Last name"
             className="w-full border-b border-gray-300 focus:outline-none focus:border-blue-500 py-2"
           />
 
-          {/* Email */}
           <input
             type="email"
             placeholder="Email"
             className="w-full border-b border-gray-300 focus:outline-none focus:border-blue-500 py-2"
           />
 
-          {/* User role */}
           <select
             className="w-full border-b border-gray-300 focus:outline-none focus:border-blue-500 py-2 text-gray-500"
           >
@@ -49,29 +59,24 @@ export default function Register() {
             <option value="user">User</option>
           </select>
 
-          {/* Password */}
           <input
             type="password"
             placeholder="Password"
             className="w-full border-b border-gray-300 focus:outline-none focus:border-blue-500 py-2"
           />
 
-          {/* Re-enter password */}
           <input
             type="password"
             placeholder="Re-enter password"
             className="w-full border-b border-gray-300 focus:outline-none focus:border-blue-500 py-2"
           />
 
-          {/* Button */}
-          <Link to="/">
-            <button
-              type="button"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded"
+          <button 
+              onClick={handleLogin} 
+              className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
             >
               Register
-            </button>
-          </Link>
+          </button>
         </form>
       </div>
     </div>

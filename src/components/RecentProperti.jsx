@@ -48,14 +48,13 @@ const properties = [
 ];
 
 const RecentProperti = () => {
-  // Har bir property uchun alohida liked state
   const [likedItems, setLikedItems] = useState([]);
 
   const toggleLike = (index) => {
     setLikedItems((prev) =>
       prev.includes(index)
-        ? prev.filter((i) => i !== index) // agar bosilgan bo‘lsa olib tashlaydi
-        : [...prev, index] // bosilmagan bo‘lsa qo‘shadi
+        ? prev.filter((i) => i !== index) 
+        : [...prev, index] 
     );
   };
 
@@ -108,7 +107,6 @@ const RecentProperti = () => {
                   <h3 className="font-semibold text-gray-800">{item.title}</h3>
                   <p className="text-sm text-gray-500 mb-2">{item.location}</p>
 
-                  {/* Beds va Baths */}
                   <div className="flex items-center justify-between text-gray-600 text-sm mt-4">
                     <div className="flex items-center gap-1">
                       <FaBed /> {item.beds} Beds
@@ -118,7 +116,6 @@ const RecentProperti = () => {
                     </div>
                   </div>
 
-                  {/* Garage va Area */}
                   <div className="flex items-center justify-between text-gray-600 text-sm mt-2">
                     <div className="flex items-center gap-1">
                       <FaCar /> {item.garage} Garage
@@ -128,9 +125,7 @@ const RecentProperti = () => {
                     </div>
                   </div>
 
-                  {/* Narx va Ikonkalar yonma-yon */}
                   <div className="mt-4 flex items-center justify-between">
-                    {/* Narx */}
                     <div>
                       <span className="line-through text-gray-400 text-sm">
                         {item.priceOld}
@@ -140,7 +135,6 @@ const RecentProperti = () => {
                       </p>
                     </div>
 
-                    {/* Ikonkalar */}
                     <div className="flex items-center gap-2">
                       <button className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition">
                         <AiOutlineExpand className="text-gray-600 text-lg" />

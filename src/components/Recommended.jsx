@@ -57,13 +57,12 @@ const properties = [
 ];
 
 const PropertiCard = () => {
-  // Liked bo'lgan kartalarni index orqali saqlaymiz
   const [liked, setLiked] = useState({});
 
   const toggleLike = (index) => {
     setLiked((prev) => ({
       ...prev,
-      [index]: !prev[index], // faqat shu kartani o'zgartiramiz
+      [index]: !prev[index], 
     }));
   };
 
@@ -116,7 +115,6 @@ const PropertiCard = () => {
                   <h3 className="font-semibold text-gray-800">{item.title}</h3>
                   <p className="text-sm text-gray-500 mb-2">{item.location}</p>
 
-                  {/* Beds va Baths */}
                   <div className="flex items-center justify-between text-gray-600 text-sm mt-4">
                     <div className="flex items-center gap-1">
                       <FaBed /> {item.beds} Beds
@@ -126,7 +124,6 @@ const PropertiCard = () => {
                     </div>
                   </div>
 
-                  {/* Garage va Area */}
                   <div className="flex items-center justify-between text-gray-600 text-sm mt-2">
                     <div className="flex items-center gap-1">
                       <FaCar /> {item.garage} Garage
@@ -136,9 +133,7 @@ const PropertiCard = () => {
                     </div>
                   </div>
 
-                  {/* Narx va Ikonkalar yonma-yon */}
                   <div className="mt-4 flex items-center justify-between">
-                    {/* Narx */}
                     <div>
                       <span className="line-through text-gray-400 text-sm">
                         {item.priceOld}
@@ -148,7 +143,6 @@ const PropertiCard = () => {
                       </p>
                     </div>
 
-                    {/* Ikonkalar */}
                     <div className="flex items-center gap-2">
                       <button className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition">
                         <AiOutlineExpand className="text-gray-600 text-lg" />

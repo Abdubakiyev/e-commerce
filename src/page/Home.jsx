@@ -9,13 +9,15 @@ import Category1 from '../components/Category1'
 import HeroSection from '../components/HeroSection'
 import RecentProperti from '../components/RecentProperti'
 import Testimonials from '../components/Testimonials'
+import MainNav from '../components/MainNav'
 
 
 export default function Home() {
+    const token = localStorage.getItem('token', 'fake_token_123');
   return (
     <div>
-        <Navbar/>
-        <SearchBar/>
+      {token ? <MainNav /> : <Navbar />}
+      <SearchBar/>
         <Hero/>
         <Recommended/>
         <WhyChooseUs/>
